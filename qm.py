@@ -69,10 +69,10 @@ class QM:
 
             # Return a joined string of the variables ANDed in this Minterm if this Minterm
             #   is acting like a normal Minterm, other wise OR them together
-            return "{}".format(" OR " if self.is_maxterm else " AND ").join([
+            return "{}".format(" AND " if self.is_maxterm else " OR ").join([
                 "{}{}".format(
-                    self.variables[bit],
-                    "\'" if bit_pattern[bit] == "0" else ""
+                    "NOT " if bit_pattern[bit] == "0" else "",
+                    self.variables[bit]
                 )
                 for bit in range(len(bit_pattern))
                 if bit_pattern[bit] != "-"
