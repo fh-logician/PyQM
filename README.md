@@ -41,4 +41,4 @@ print(g.solve()) # --> NOT D
 
 ## Feedback, Suggestions, Bugs
 
-Any feedback, suggestions, or bugs can be mentioned in my [Discord Server](https://discord.gg/EpjKcrm).
+Any feedback, suggestions, or bugs can be submitted through the issues interface on here :)
