@@ -7,7 +7,7 @@ There are 2 different ways to get a simplified logical expression:
  * Maxterm method
  
 Both methods will get you the same function but they differ by how they are connected together
- * `A' + B'` (Minterm method) is the exact same as `AB` (Maxterm method)
+ * `NOT A OR NOT B` (Minterm method) is the exact same as `A AND B` (Maxterm method)
 
 ### Minterm Method
 
@@ -16,27 +16,27 @@ f = QM("ABC", [4, 5, 6, 7])
 print(f.solve()) # --> A
 
 g = QM("ABC", [3, 4, 5, 6, 7])
-print(g.solve()) # --> A + B*C
+print(g.solve()) # --> A OR B AND C
 ```
 
 ### Maxterm Method
 
 ```py
 f = QM("ABC", [0, 1, 2, 3], is_maxterm = True)
-print(f.solve()) # --> A'
+print(f.solve()) # --> NOT A
 
 g = QM("ABC", [0, 1, 2], is_maxterm = True)
-print(g.solve()) # --> (A'+B')*(A'+C')
+print(g.solve()) # --> (NOT A OR NOT B) AND (NOT A OR NOT C)
 ```
 
 ### Using Don't Cares
 
 ```py
 f = QM("ABC", [0, 1], dont_cares = [4, 5, 6, 7])
-print(f.solve()) # --> B'
+print(f.solve()) # --> NOT B
 
 g = QM("ABCD", [0, 2, 4, 8, 12], dont_cares = [6, 10, 11, 14, 15])
-print(g.solve()) # --> D'
+print(g.solve()) # --> NOT D
 ```
 
 ## Feedback, Suggestions, Bugs
